@@ -1,0 +1,34 @@
+{% extends "news/home.html.twig" %}
+
+{% block title %}Authors - List{% endblock %}
+
+{% block header %}
+    <p>AUTHORS LIST</p>
+    <a href="{{path("home")}}">Home - News</a>
+{% endblock %}
+
+{% block main %}
+    <p>
+       {% for a in authors%}
+  {#           {%for i in a.image %}
+                <img src="{{asset(i.url)}}"/>
+            {%endfor%} #}       
+        <ul>
+            <li>{{"Nom : "}}<a href="{{ path('authorDetail', 
+{"id" : a.id}
+)}}">{{a.name}}</a></li>
+            <li>{{"Prénom : "}}{{a.firstname}}</li>
+            <li>{{"Date de naissance : "}}{{a.dateOfBirth|date("d/m/Y")}}</li>
+            <li>{{"Biography : "}}{{a.biography}}</li>
+            <li>{{"News : "}}
+                {% for n in a.news%}
+                    <p>{{n.titre}}</p>
+                {%endfor%}
+
+            </li>
+
+        </ul>
+    {%endfor%}
+</p>
+<a href="{{ path('home') }}">Home</a>
+{% endblock %}

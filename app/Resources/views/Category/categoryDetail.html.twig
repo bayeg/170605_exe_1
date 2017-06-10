@@ -1,0 +1,20 @@
+{% extends "news/home.html.twig" %}
+
+{% block title %}Category - Detail{% endblock %}
+
+{% block header %}
+    <p>CATEGORY DETAIL</p>
+{% endblock %}
+
+{% block main %}
+    <p>{{"Categorie : "}}{{c.name}}</p>
+    <p>{{"Slug : "}}{{c.slug}}</p>
+    <p>{{"News : "}}
+        {% for n in c.news%}
+        <p>{{n.titre}}</p>
+    {%endfor%}
+
+</p>
+
+<a href="{{ path('home') }}">Home</a>
+{% endblock %}

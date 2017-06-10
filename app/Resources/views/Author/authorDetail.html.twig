@@ -1,0 +1,21 @@
+{% extends "news/home.html.twig" %}
+
+{% block title %}Authors - Detail{% endblock %}
+
+{% block header %}
+    <p>AUTHOR DETAIL</p>
+{% endblock %}
+
+{% block main %}
+    <p>{{"Nom : "}}{{a.name}}</p>
+    <p>{{"Prénom : "}}{{a.firstname}}</p>
+    <p>{{"Date de naissance : "}}{{a.dateOfBirth|date("d/m/Y")}}</p>
+    <p>{{"Biography : "}}{{a.biography}}</p>
+    <p>{{"News : "}}
+        {% for n in a.news%}
+        <p>{{n.titre}}</p>
+    {%endfor%}
+
+</p>
+<a href="{{ path('home') }}">Home</a>
+{% endblock %}

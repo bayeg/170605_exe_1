@@ -1,0 +1,29 @@
+{% extends "news/home.html.twig" %}
+
+{% block title %}Categories - List{% endblock %}
+
+{% block header %}
+    <p>CATHEGORIES LIST</p>
+    <a href="{{path("home")}}">Home - News</a>
+{% endblock %}
+
+{% block main %}
+    <p>
+        {% for c in c%}
+        <ul>
+            <li><a href="{{ path('categoryDetail', 
+{"id" : c.id}
+)}}">{{"Nom : "}}{{c.name}}</a></li>
+            <li>{{"Slug : "}}{{c.slug}}</li>
+            <li>{{"News : "}}
+                {% for n in c.news%}
+                    <p>{{n.titre}}</p>
+                {%endfor%}
+
+            </li>
+
+        </ul>
+    {%endfor%}
+</p>
+<a href="{{ path('home') }}">Home</a>
+{% endblock %}

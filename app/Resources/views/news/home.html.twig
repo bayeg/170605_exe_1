@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Home - News{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <style>
+        body {
+            margin: 0;
+            padding: 2%;
+        }
+        header, footer{
+            width : 75%;
+            margin : 0 auto;
+            border : red double medium;
+        }
+        header {
+            background-color: lightgreen;
+        } 
+        footer {
+            background-color: lightcoral;
+        }
+        header p, footer p{
+            text-align: center;
+        }
+        main{
+            position: relative;
+            width: 100%;
+            padding:3%;
+            overflow: hidden;
+            
+        }
+        article{
+            float: left;
+            width: 30%;
+            border: 1px solid #73AD21;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    {% block body %}
+        <header>
+            {% block header %}
+                <p>HOME - NEWS</p>
+                <a href="{{path("authorsList")}}">Authors</a>
+                <a href="{{path("categoriesList")}}">Categories</a>
+            {% endblock %}
+        </header>
+        <main>
+            {% block main %}
+                
+                    {% for n in news %}
+                        <article>
+                        <a href="{{ path('news_detail',{
+                        "id" : n.id
+                        })}}"><img src="{{asset(n.image)}}"/></a>
+
+                        <p>{{n.texte}}</p>
+                        <p><a href="{{ path('news_detail',{
+                        "id" : n.id
+                        })}}">Suite ...</a></p>
+</article>
+                    {% endfor %}
+                
+            {% endblock %}
+        </main>
+        <footer>
+            {% block footer %}
+                <p>FOOTER</p>
+            {% endblock %}
+        </footer>
+    {% endblock %}
+{% block javascripts %}{% endblock %}
+</body>
+</html>

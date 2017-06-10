@@ -1,0 +1,15 @@
+{% extends "news/home.html.twig" %}
+{% block title %}News - Detail{% endblock %}
+
+        {% block header %}
+            <p>HOME - NEWS DETAIL</p>
+        {% endblock %}
+   
+
+        {% block main %}
+            <img src="{{asset(new.image)}}"/>
+            <h1>{{new.titre}}</h1>
+            <p>{{new.texte}}</p>
+            <a href="{{ path('home') }}">Home</a>
+        {% endblock%}
+
