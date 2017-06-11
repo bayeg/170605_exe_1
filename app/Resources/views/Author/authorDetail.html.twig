@@ -7,6 +7,7 @@
 {% endblock %}
 
 {% block main %}
+    <img src="{{asset(a.image.url)}}"/>
     <p>{{"Nom : "}}{{a.name}}</p>
     <p>{{"Prénom : "}}{{a.firstname}}</p>
     <p>{{"Date de naissance : "}}{{a.dateOfBirth|date("d/m/Y")}}</p>

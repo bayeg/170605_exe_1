@@ -59,7 +59,7 @@ class Author {
 
     /**
      * @var Image 
-     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Image", cascade={"persist"})
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Image")
      */
     private $image;
 

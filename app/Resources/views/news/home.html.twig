@@ -37,6 +37,10 @@
             border: 1px solid #73AD21;
             padding: 10px;
         }
+        img{
+            max-height: 30%;
+            max-width: 30%;
+        }
 
     </style>
 </head>
@@ -51,7 +55,6 @@
         </header>
         <main>
             {% block main %}
-                
                     {% for n in news %}
                         <article>
                         <a href="{{ path('news_detail',{

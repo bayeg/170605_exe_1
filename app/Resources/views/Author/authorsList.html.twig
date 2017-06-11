@@ -9,10 +9,10 @@
 
 {% block main %}
     <p>
-       {% for a in authors%}
-  {#           {%for i in a.image %}
-                <img src="{{asset(i.url)}}"/>
-            {%endfor%} #}       
+       {% for a in authors%}              
+                <a href="{{ path('authorDetail', 
+{"id" : a.id}
+)}}"><img src="{{asset(a.image.url)}}"/></a>               
         <ul>
             <li>{{"Nom : "}}<a href="{{ path('authorDetail', 
 {"id" : a.id}
